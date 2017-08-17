@@ -25,21 +25,9 @@ The below describes the AWS services used and their uses.
 Service| Use| Key Info  
 ---|---|---  
 Spot Fleet| Spot Fleet manages your fleet of spot bids. It also provides autoscaling abilities which can be configured through typical coudwatch metrics| [Autoscale for Spot Fleet](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-automatic-scaling.html),  
-  
-AutoScale Group
-
-| AutoScale is used to manage a on-demand set of instances which are only spun-up if Spot-Fleet is unable to provide required resources|   
-  
-ECS| 
-
-ECS provides the container management framework. Allowing us to set up services and dictate the number of instance of containers to be maintained etc.
-
-Metrics from ECS are used to directly influence the size of the fleet (physical instances) needed.
-
-|   
-  
-Lambda| Lambda is used to regularly check that Spot-Fleet is providing the required resource. If it cannot, due to being out-bid for example, it will automatically scale up the ASG on-demand group to compensate.|   
-  
+AutoScale Group | AutoScale is used to manage a on-demand set of instances which are only spun-up if Spot-Fleet is unable to provide required resources |   
+ECS| ECS provides the container management framework. Allowing us to set up services and dictate the number of instance of containers to be maintained etc. Metrics from ECS are used to directly influence the size of the fleet (physical instances) needed.|  
+Lambda| Lambda is used to regularly check that Spot-Fleet is providing the required resource. If it cannot, due to being out-bid for example, it will automatically scale up the ASG on-demand group to compensate.|
 CloudWatch| There are a number of metrics from Spot-Fleet and ECS which are then acted upon in CloudWatch to alarm and kick off our Lambda function.|   
   
   
